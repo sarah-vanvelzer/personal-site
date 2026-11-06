@@ -1,5 +1,5 @@
 # Personal Website
 
-**Live site:** https://sarah.vanvelzer.com
+**Live site:** https://sarahvanvelzer.com
 
 Built with HTML and CSS.
