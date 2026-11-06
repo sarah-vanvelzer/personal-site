@@ -1,0 +1,404 @@
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "Lenia Sans";
+  src: url("fonts/LeniaSans-Bold.woff2") format("woff2"), url("fonts/LeniaSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lenia Sans";
+  src: url("fonts/LeniaSans-ExtraBold.woff2") format("woff2"), url("fonts/LeniaSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Editorial Today";
+  src: url("fonts/EditorialToday-Bold.woff2") format("woff2"), url("fonts/EditorialToday-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  --maroon: #511108;
+  --sage: #93c3b7;
+  --pink: #f5759e;
+  --cream: #f4f2e5;
+
+  /* 1 design pixel. The layout is drawn at 1440 wide and scales
+     down proportionally on smaller screens. */
+  --u: calc(min(100vw, 1440px) / 1440);
+  --eu: var(--u); /* envelope scale */
+  --cu: var(--u); /* photo collage scale */
+
+  --sans: "Lenia Sans", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Editorial Today", Georgia, serif;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--maroon);
+  font-family: var(--serif);
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; }
+a { color: inherit; text-decoration: none; }
+section, footer { scroll-margin-top: calc(50 * var(--u)); }
+
+.wrap {
+  position: relative;
+  width: calc(1440 * var(--u));
+  margin: 0 auto;
+}
+.serif { font-family: var(--serif); font-weight: 700; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: calc(50 * var(--u));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(87 * var(--u));
+  background-color: var(--cream);
+  background-image: url("images/paper-texture.png");
+  background-size: 100% auto;
+  background-position: top;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: calc(20 * var(--u));
+}
+.nav a:hover { color: var(--pink); }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--sage); }
+.hero .wrap { height: calc(749 * var(--u)); }
+
+.hero-text {
+  position: absolute;
+  left: calc(97 * var(--u));
+  top: calc(179.25 * var(--u));
+  width: calc(887 * var(--u));
+  text-align: center;
+}
+.hero h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: calc(135 * var(--u));
+  line-height: calc(141.5 * var(--u));
+}
+.hero h1 span { display: block; }
+.hero h1 .first { transform: translateX(calc(-66.5 * var(--u))); }
+.hero-text p {
+  margin-top: calc(32.75 * var(--u));
+  font-size: calc(25 * var(--u));
+  line-height: calc(30 * var(--u));
+}
+.hero-photo {
+  position: absolute;
+  left: calc(999 * var(--u));
+  top: calc(131 * var(--u));
+  width: calc(267 * var(--u));
+  height: auto;
+}
+
+/* ---------- Projects ---------- */
+.projects {
+  background: var(--maroon);
+  color: var(--pink);
+}
+.projects .wrap {
+  padding: calc(69 * var(--u)) 0 calc(125 * var(--u));
+}
+.projects h2 {
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: calc(40 * var(--u));
+  line-height: calc(54 * var(--u));
+  height: calc(54 * var(--u));
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(82 * var(--u));
+}
+.card {
+  width: calc(416 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: calc(25 * var(--u));
+  line-height: calc(34 * var(--u));
+}
+.card:first-child, .card:last-child { transform: translateX(calc(7 * var(--u))); }
+.card img {
+  width: calc(var(--w) * var(--eu));
+  height: auto;
+  margin-bottom: calc(27 * var(--u));
+}
+
+/* ---------- Experience ---------- */
+.experience {
+  background-color: var(--cream);
+  background-image: url("images/paper-texture.png");
+  background-size: 100% 100%;
+}
+.experience .wrap {
+  padding: calc(122 * var(--u)) calc(107 * var(--u)) calc(122 * var(--u)) calc(106 * var(--u));
+}
+.experience h2 {
+  font-size: calc(100 * var(--u));
+  line-height: calc(118 * var(--u));
+  margin-bottom: calc(40 * var(--u));
+}
+.job + .job { margin-top: calc(40 * var(--u)); }
+.job h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: calc(40 * var(--u));
+  line-height: calc(54 * var(--u));
+}
+.job-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: calc(8 * var(--u));
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: calc(22 * var(--u));
+  line-height: calc(30 * var(--u));
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: calc(35 * var(--u));
+  padding: 0 calc(13.5 * var(--u));
+  border-radius: calc(25 * var(--u));
+  background: var(--pink);
+}
+.job p {
+  margin-top: calc(25 * var(--u));
+  font-size: calc(25 * var(--u));
+  line-height: calc(30 * var(--u));
+  text-align: justify;
+}
+
+/* ---------- About ---------- */
+.about { background: var(--sage); }
+.about .wrap {
+  min-height: calc(860 * var(--u));
+  padding: calc(124 * var(--u)) 0 calc(135 * var(--u)) calc(106 * var(--u));
+  display: flex;
+  align-items: center;
+  gap: calc(35 * var(--u));
+}
+.collage {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(683 * var(--cu));
+  height: calc(663 * var(--cu));
+}
+.collage img {
+  position: absolute;
+  width: calc(var(--w) * var(--cu));
+  height: auto;
+}
+.collage .oval  { left: calc(11 * var(--cu));     top: calc(32.4 * var(--cu)); }
+.collage .wavy  { left: calc(-4 * var(--cu));     top: calc(353 * var(--cu)); }
+.collage .green { left: calc(228.15 * var(--cu)); top: 0; }
+.collage .stars { left: calc(322 * var(--cu));    top: calc(306 * var(--cu)); }
+
+.about-text { width: calc(509 * var(--u)); }
+.about h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: calc(85 * var(--u));
+  line-height: calc(115 * var(--u));
+  height: calc(115 * var(--u));
+  margin-bottom: calc(36 * var(--u));
+}
+.about p {
+  font-size: calc(25 * var(--u));
+  line-height: calc(30 * var(--u));
+  text-align: justify;
+}
+.about p + p { margin-top: calc(30 * var(--u)); }
+
+/* ---------- Contact ---------- */
+.contact {
+  background: var(--maroon);
+  color: var(--pink);
+}
+.contact .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: calc(70 * var(--u)) calc(106 * var(--u)) calc(125 * var(--u));
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: calc(25 * var(--u));
+  line-height: calc(34 * var(--u));
+}
+.contact h2 {
+  font-weight: 800;
+  font-size: calc(100 * var(--u));
+  line-height: calc(135 * var(--u));
+  height: calc(135 * var(--u));
+  margin-bottom: calc(16 * var(--u));
+}
+.contact .underline { text-decoration: underline; }
+.contact .links { display: flex; gap: calc(40 * var(--u)); }
+.contact a:hover { opacity: 0.8; }
+
+/* =========================================================
+   MOBILE (under 900px wide)
+   Same design as desktop, restacked to fit a phone.
+   --m = 1 pixel of a 390-wide phone layout.
+   ========================================================= */
+@media (max-width: 899px) {
+  :root {
+    --m: calc(min(100vw, 560px) / 390);
+    --eu: calc(0.42 * var(--m));
+    --cu: calc(342 / 618 * var(--m));
+  }
+  .wrap { width: 100%; }
+  section, footer { scroll-margin-top: calc(46 * var(--m)); }
+
+  /* Nav */
+  .nav {
+    height: calc(46 * var(--m));
+    gap: calc(22 * var(--m));
+    font-size: calc(15 * var(--m));
+  }
+
+  /* Hero: matches the iPhone frame in Figma */
+  .hero .wrap {
+    height: auto;
+    padding: calc(56 * var(--m)) calc(24 * var(--m)) calc(56 * var(--m));
+  }
+  .hero-text {
+    position: static;
+    width: auto;
+  }
+  .hero h1 {
+    font-size: calc(60 * var(--m));
+    line-height: 1.04;
+  }
+  .hero h1 .first { transform: translateX(-0.625em); }
+  .hero-text p {
+    margin-top: calc(12 * var(--m));
+    font-size: calc(15 * var(--m)); /* same as all other body text on mobile */
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .hero-text p br { display: none; }
+  .hero-photo {
+    position: static;
+    width: calc(180 * var(--m));
+    margin: calc(36 * var(--m)) auto 0;
+  }
+
+  /* Projects: centered heading, three envelopes in a row */
+  .projects .wrap { padding: calc(56 * var(--m)) calc(24 * var(--m)); }
+  .projects h2 {
+    font-size: calc(22 * var(--m));
+    line-height: 1.3;
+    height: auto;
+  }
+  .cards {
+    margin-top: calc(28 * var(--m));
+    justify-content: space-between;
+  }
+  .card {
+    width: auto;
+    flex: 1;
+    font-size: calc(14 * var(--m));
+    line-height: 1.3;
+  }
+  .card:first-child, .card:last-child { transform: none; }
+  .card img { margin-bottom: calc(12 * var(--m)); }
+
+  /* Experience */
+  .experience .wrap { padding: calc(56 * var(--m)) calc(24 * var(--m)); }
+  .experience h2 {
+    font-size: calc(44 * var(--m));
+    line-height: 1.2;
+    margin-bottom: calc(20 * var(--m));
+  }
+  .job + .job { margin-top: calc(32 * var(--m)); }
+  .job h3 {
+    font-size: calc(20 * var(--m));
+    line-height: 1.25;
+  }
+  .job-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(6 * var(--m)) calc(12 * var(--m));
+    margin-top: calc(8 * var(--m));
+    font-size: calc(13 * var(--m));
+    line-height: 1.3;
+  }
+  .pill {
+    height: calc(26 * var(--m));
+    padding: 0 calc(10 * var(--m));
+  }
+  .job p {
+    margin-top: calc(14 * var(--m));
+    font-size: calc(15 * var(--m));
+    line-height: 1.45;
+  }
+
+  /* About: heading + text, then the same photo collage scaled to fit */
+  .about { overflow: hidden; } /* the frame images have see-through edges that stick out */
+  .about .wrap {
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: calc(56 * var(--m)) calc(24 * var(--m));
+  }
+  .about-text { width: auto; order: -1; }
+  .about h2 {
+    font-size: calc(44 * var(--m));
+    line-height: 1.2;
+    height: auto;
+    margin-bottom: calc(20 * var(--m));
+  }
+  .about p {
+    font-size: calc(15 * var(--m));
+    line-height: 1.45;
+  }
+  .about p + p { margin-top: calc(15 * var(--m)); }
+  .collage {
+    position: relative;
+    left: calc(4 * var(--cu));
+    top: auto;
+    width: calc(618 * var(--cu));
+    margin: calc(40 * var(--m)) auto 0;
+  }
+
+  /* Contact */
+  .contact .wrap {
+    padding: calc(56 * var(--m)) calc(24 * var(--m));
+    font-size: calc(15 * var(--m));
+    line-height: 1.5;
+  }
+  .contact h2 {
+    font-size: calc(44 * var(--m));
+    line-height: 1.2;
+    height: auto;
+    margin-bottom: calc(20 * var(--m));
+  }
+  .contact .links { gap: calc(20 * var(--m)); }
+  .nav { gap: calc(18 * var(--m)); }
+}
