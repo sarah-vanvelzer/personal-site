@@ -247,7 +247,7 @@ section, footer { scroll-margin-top: calc(50 * var(--u)); }
   font-family: var(--sans);
   font-weight: 700;
   font-size: calc(25 * var(--u));
-  line-height: calc(34 * var(--u));
+  line-height: calc(40 * var(--u));
 }
 .contact h2 {
   font-weight: 800;
