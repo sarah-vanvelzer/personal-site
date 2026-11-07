@@ -301,7 +301,6 @@ section, footer { scroll-margin-top: calc(50 * var(--u)); }
     line-height: 1.45;
     text-wrap: balance;
   }
-  .hero-text p br { display: none; }
   .hero-photo {
     position: static;
     width: calc(180 * var(--m));
